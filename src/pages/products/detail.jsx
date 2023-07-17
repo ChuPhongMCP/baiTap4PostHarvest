@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
 import { Card } from 'antd';
 
-import { axiosAdmin } from "helper";
+import { axiosAdmin, formatter } from "helper";
 import Loading from "components/loading";
 
 function ProductDetailPage() {
@@ -48,14 +48,14 @@ function ProductDetailPage() {
               <EllipsisOutlined key="ellipsis" />,
             ]}
           >
-            <p className="fw-bold">{product.name}</p>
-            <p className="fst-italic">{product.description}</p>
-            <p className="fst-italic">{product.discount}</p>
-            <p className="fst-italic">{product.discountedPrice}</p>
-            <p className="fst-italic">{product.price}</p>
-            <p className="fst-italic">{product.stock}</p>
-            <p className="fst-italic">{product.category.name}</p>
-            <p className="fst-italic">{product.supplier.name}</p>
+            <p style={{fontSize: "25px"}} className="fw-bold">{product.name}</p>
+            <p className="fst-italic">Mô tả: {product.description}</p>
+            <p className="fst-italic">Discount: {product.discount}%</p>
+            <p className="fst-italic">Giá giảm: {formatter.format(product.discountedPrice)}</p>
+            <p className="fst-italic">Giá gốc: {formatter.format(product.price)}</p>
+            <p className="fst-italic">Tồn kho: {product.stock}</p>
+            <p className="fst-italic">Danh mục: {product.category.name}</p>
+            <p className="fst-italic">Nhà cung cấp: {product.supplier.name}</p>
           </Card>
         )
       )}

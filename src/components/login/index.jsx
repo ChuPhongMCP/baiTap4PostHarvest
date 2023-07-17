@@ -101,7 +101,7 @@ function Login(props) {
       console.error(err);
       console.log("Login thất bại");
       setIsHaveReponsive(true); //set biến isHaveReponsive thành true để tắt màn hình loading
-      alert("Đăng nhập thất bại!");
+      alert("Đăng nhập thất bại! Tài khoản hoặc mật khẩu không đúng.");
     }
   };
 
